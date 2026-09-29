@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NAGOOD 질문지</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap">
+<style>
+:root{--bg:#fff3c4;--bg2:#ffe0ee;--card:#fff;--ink:#1f2a68;--sub:#5b649b;--pri:#4a63ff;--pink:#ff7eb6;--mint:#7fe3c1;--sun:#ffd23f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141b47;--bg2:#2a1b52;--card:#1f2a68;--ink:#fff3c4;--sub:#b9c0f0;--pri:#8fa0ff}}
+:root[data-theme="dark"]{--bg:#141b47;--bg2:#2a1b52;--card:#1f2a68;--ink:#fff3c4;--sub:#b9c0f0;--pri:#8fa0ff}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(circle at 15% 10%,var(--bg2),transparent 45%),var(--bg);background-attachment:fixed;color:var(--ink);font-family:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;overflow-x:hidden}
+.strip{position:relative;z-index:2;overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--bg);font-family:"Jua",sans-serif;font-size:14px;padding:7px 0}
+.strip span{display:inline-block;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.blob{position:fixed;border-radius:50%;z-index:0;pointer-events:none;animation:fl 9s ease-in-out infinite alternate}
+.b1{width:180px;height:180px;background:var(--mint);opacity:.55;right:-50px;top:18%}
+.b2{width:130px;height:130px;background:var(--pink);opacity:.5;left:-40px;bottom:14%;animation-delay:-4s}
+@keyframes fl{to{transform:translateY(-30px) rotate(20deg)}}
+main{position:relative;z-index:1;width:100%;max-width:520px;margin:0 auto;padding:18px 16px 46px}
+.bar{height:12px;border:2.5px solid var(--ink);border-radius:10px;background:var(--card);overflow:hidden;margin-bottom:22px}
+.bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--pink) 0 10px,var(--sun) 10px 20px);transition:width .5s cubic-bezier(.3,1.4,.5,1)}
+.scene{animation:in .5s cubic-bezier(.2,1,.3,1) both}
+.scene.out{animation:out .28s ease-in both}
+@keyframes in{from{opacity:0;transform:translateY(30px) rotate(1.5deg)}to{opacity:1;transform:none}}
+@keyframes out{to{opacity:0;transform:translateX(-40px) rotate(-1.5deg)}}
+.num{display:inline-block;font-family:"Jua",sans-serif;background:var(--pri);color:#fff;border-radius:999px;padding:3px 14px;font-size:16px;margin-bottom:8px;transform:rotate(-3deg)}
+h1{font-family:"Jua",sans-serif;font-weight:400;font-size:46px;line-height:1.1;margin:10px 0}
+h2{font-family:"Jua",sans-serif;font-weight:400;font-size:26px;line-height:1.35;margin:0 0 6px}
+p{margin:0 0 12px;color:var(--sub);font-size:16px;line-height:1.65}
+.sub{font-size:14px}
+.note{font-size:13px}
+.sticker{background:var(--card);border:3px solid var(--ink);border-radius:26px;box-shadow:6px 6px 0 var(--ink);padding:20px 18px;margin:8px 0 18px}
+.hero{font-size:74px;text-align:center;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-6deg)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{border:2.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:10px 16px;font:inherit;font-size:17px;cursor:pointer;display:inline-flex;gap:7px;align-items:center;transition:transform .18s,box-shadow .18s;box-shadow:3px 3px 0 var(--ink)}
+.chip:nth-child(3n){transform:rotate(-1.5deg)}
+.chip:nth-child(3n+1){transform:rotate(1.2deg)}
+.chip:hover{transform:translateY(-3px) rotate(0);box-shadow:3px 6px 0 var(--ink)}
+.chip.on{background:var(--pri);color:#fff;transform:scale(1.06) rotate(0);animation:pop .4s ease}
+.chip.big{font-size:19px;padding:13px 20px}
+.chip .e{font-size:22px}
+.chip.no{animation:shake .3s}
+@keyframes pop{40%{transform:scale(1.16)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+label{display:block;font-size:14px;color:var(--sub);margin:14px 0 4px}
+input,textarea{width:100%;border:2.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:16px;padding:12px 14px;font:inherit;font-size:17px}
+textarea{min-height:110px;resize:vertical;margin-top:12px}
+.sent{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:16px;font-family:"Jua",sans-serif;font-size:22px}
+.sent input{flex:1;min-width:120px}
+.btn{border:2.5px solid var(--ink);border-radius:18px;padding:12px 24px;font:"Jua";font-family:"Jua",sans-serif;font-size:19px;cursor:pointer;background:var(--sun);color:#1f2a68;margin-top:16px;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.ghost{background:transparent;border-color:transparent;box-shadow:none;color:var(--sub);text-decoration:underline;font-size:16px;padding:12px 10px}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.cnt{font-size:14px;color:var(--sub);margin-top:12px}
+.spark{position:fixed;font-size:20px;pointer-events:none;animation:fly .8s ease-out forwards;z-index:9}
+@keyframes fly{to{transform:translate(var(--dx),var(--dy)) rotate(240deg);opacity:0}}
+.big-s{font-family:"Jua",sans-serif;font-size:28px;line-height:1.35;text-align:center;margin:6px 0 10px}
+.list{background:var(--card);border:2.5px solid var(--ink);border-radius:20px;padding:4px 16px;font-size:15px;line-height:1.55;white-space:pre-wrap}
+.list div{padding:9px 0;border-bottom:1.5px dashed var(--sub)}
+.list div:last-child{border:0}
+.list b{display:block;color:var(--sub);font-weight:400;font-size:13px}
+.brand{font-size:12px;color:var(--sub);margin-top:22px;line-height:1.6}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="strip"><span id="mq"></span></div>
+<div class="blob b1"></div><div class="blob b2"></div>
+<main>
+  <div class="bar"><i id="fill"></i></div>
+  <div id="stage"></div>
+</main>
+<script>
+var ADJ=["차분한","자유로운","섬세한","유쾌한","엉뚱한","낭만적인","현실적인","감성적인","활발한","조용한","따뜻한","시크한","장난기 많은","귀여운","강렬한","독특한","깔끔한","즉흥적인","계획적인","고집 있는","호기심 많은","아기자기한","무심한 듯 다정한","다른 사람과 조금 다른"];
+var S=[
+ {t:"먼저 간단히 알려 주세요",type:"form",f:["이름","닉네임","나이","하는 일","요즘 가장 많이 하고 있는 일"]},
+ {n:"01",t:"나에게 가장 가까운 단어 5가지를 골라 보세요",type:"multi",max:5,o:ADJ.map(function(a){return ["",a]}),other:1},
+ {n:"02",t:"무엇을 할 때 가장 ‘나다워진다’고 느끼나요?",type:"area",ph:"예) 혼자 산책하며 음악 들을 때"},
+ {n:"03",t:"가방 안 또는 내 착장 중에 가장 ‘나답다’ 하는 물건은 뭔가요?",type:"area",ph:"물건과 이유를 적어 주세요"},
+ {n:"04",t:"당신의 취향을 보여주는 것들을 적어 주세요",sub:"적고 싶은 것만 적어도 돼요",type:"form",f:["좋아하는 색","좋아하는 계절","좋아하는 장소","좋아하는 음식","좋아하는 동물","좋아하는 물건","좋아하는 브랜드","좋아하는 캐릭터","좋아하는 음악","기타"]},
+ {n:"05",t:"당신을 하나의 분위기로 표현한다면 어떤 느낌에 가까운가요?",type:"single",o:[["🧸","따뜻한"],["🕊️","자유로운"],["☁️","몽글몽글한"],["📼","빈티지한"],["🎀","키치한"],["🍵","차분한"],["😎","힙한"],["🎈","장난스러운"]]},
+ {n:"06",t:"지금의 나에게 필요한 것은 무엇이라고 생각하나요?",sub:"최대 2개까지 골라요",type:"multi",max:2,o:[["💪","용기"],["🛁","휴식"],["💓","설렘"],["🌟","자신감"],["🫶","위로"],["🕊️","자유"],["🎉","재미"],["🌱","새로운 시작"]]},
+ {n:"07",t:"굿즈에 꼭 들어갔으면 하는 것이 있나요?",sub:"여러 개 골라도 돼요",type:"multi",max:4,o:[["🎨","색깔"],["✏️","문구"],["🧸","캐릭터"],["🖼️","이미지"]],detail:"원하는 걸 구체적으로 적어 주세요 (선택)"},
+ {n:"08",t:"당신을 하나의 문장으로 표현한다면?",type:"sentence"},
+ {t:"마지막! 시간을 알려 주세요",type:"form",f:["디자인 인터뷰 가능 시간","디자인 컨펌 가능 시간"]}
+];
+var MQ="THE EASIEST WAY TO BE YOURSELF ✦ ";
+document.getElementById("mq").textContent=MQ.repeat(14);
+var stage=document.getElementById("stage"),fill=document.getElementById("fill"),V=[],i=-1;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function show(h,cb){
+  var old=stage.firstElementChild;
+  function put(){stage.innerHTML='<div class="scene">'+h+'</div>';window.scrollTo(0,0);if(cb)cb(stage.firstElementChild)}
+  if(old){old.classList.add("out");setTimeout(put,270)}else put();
+}
+function sparks(x,y,ch){
+  for(var n=0;n<8;n++){
+    var s=document.createElement("span");s.className="spark";s.textContent=ch;s.style.left=x+"px";s.style.top=y+"px";
+    var a=Math.PI*2*n/8;s.style.setProperty("--dx",Math.cos(a)*75+"px");s.style.setProperty("--dy",Math.sin(a)*75+"px");
+    document.body.appendChild(s);setTimeout(function(el){el.remove()}.bind(null,s),850);
+  }
+}
+function pt(e){return [e&&e.clientX||innerWidth/2,e&&e.clientY||innerHeight/2]}
+function intro(){
+  fill.style.width="0";
+  show('<div class="sticker"><div class="hero">🫧</div><h1>NAGOOD<br>질문지</h1><p>당신의 이야기를 하나의 굿즈로 만들기 위한 질문이에요. 정답은 없고, 쓰고 싶은 것만 편하게 적어 주세요.</p><p class="note">입력한 내용은 굿즈 디자인 상담에 쓰여요.</p><button class="btn" id="go">시작하기</button></div><p class="brand">NAGOOD is a goods brand that tells you, “You are good just as you are.”</p>',function(el){el.querySelector("#go").onclick=next});
+}
+function back(){if(i<=0){i=-1;intro();return}i-=2;next()}
+function next(){
+  i++;
+  if(i>=S.length)return finish();
+  fill.style.width=Math.round((i+1)/(S.length+1)*100)+"%";
+  var q=S[i];
+  show(head(q)+body(q),function(el){bind(el,q)});
+}
+function head(q){return (q.n?'<span class="num">'+q.n+'</span>':'')+'<h2>'+esc(q.t)+'</h2>'+(q.sub?'<p class="sub">'+esc(q.sub)+'</p>':'')}
+function body(q){
+  var v=V[i],h="";
+  if(q.type==="single"){
+    h='<div class="chips">'+q.o.map(function(o,n){return '<button class="chip big'+(v===o[1]?' on':'')+'" data-n="'+n+'"><span class="e">'+o[0]+'</span>'+esc(o[1])+'</button>'}).join("")+'</div>';
+  }else if(q.type==="multi"){
+    var sel=(v&&v.sel)||[];
+    h='<div class="chips">'+q.o.map(function(o,n){return '<button class="chip'+(o[0]?' big':'')+(sel.indexOf(o[1])>-1?' on':'')+'" data-n="'+n+'">'+(o[0]?'<span class="e">'+o[0]+'</span>':'')+esc(o[1])+'</button>'}).join("")+(q.other?'<button class="chip'+(v&&v.other?' on':'')+'" id="oth">＋ 기타</button>':'')+'</div>'+
+      (q.other?'<input id="oin" placeholder="나만의 단어를 적어 주세요" style="margin-top:12px;display:'+(v&&v.other?'block':'none')+'" value="'+esc((v&&v.other)||"")+'">':'')+
+      (q.detail?'<textarea id="det" placeholder="'+esc(q.detail)+'">'+esc((v&&v.detail)||"")+'</textarea>':'')+'<div class="cnt" id="cnt"></div>';
+  }else if(q.type==="form"){
+    h=q.f.map(function(f,n){return '<label for="f'+n+'">'+esc(f)+'</label><input id="f'+n+'" autocomplete="off" value="'+esc((v&&v[n])||"")+'">'}).join("");
+  }else if(q.type==="area"){
+    h='<textarea id="tx" maxlength="400" placeholder="'+esc(q.ph||"")+'">'+esc(v||"")+'</textarea>';
+  }else{
+    h='<div class="sent"><span>나는</span><input id="tx" maxlength="30" value="'+esc(v||"")+'"><span>한 사람이다.</span></div>';
+  }
+  var nx=q.type==="single"?'':'<button class="btn" id="nx">다음</button>';
+  return h+'<div class="row">'+nx+'<button class="btn ghost" id="bk">← 이전</button><button class="btn ghost" id="sk">건너뛰기</button></div>';
+}
+function bind(el,q){
+  var lock=false,idx=i;
+  function go(){if(!lock){lock=true;next()}}
+  el.querySelector("#bk").onclick=function(){if(!lock){save();lock=true;back()}};
+  el.querySelector("#sk").onclick=function(){V[idx]=undefined;go()};
+  function save(){
+    if(q.type==="multi"){
+      var sel=[].map.call(el.querySelectorAll(".chip.on[data-n]"),function(b){return q.o[+b.dataset.n][1]});
+      var oin=el.querySelector("#oin"),det=el.querySelector("#det");
+      V[idx]={sel:sel,other:oin&&el.querySelector("#oth").classList.contains("on")?oin.value.trim():"",detail:det?det.value.trim():""};
+    }else if(q.type==="form"){
+      V[idx]=q.f.map(function(f,n){return el.querySelector("#f"+n).value.trim()});
+    }else if(q.type==="area"||q.type==="sentence"){
+      V[idx]=el.querySelector("#tx").value.trim();
+    }
+  }
+  if(q.type==="single"){
+    var cs=el.querySelectorAll(".chip");
+    cs.forEach(function(c){c.onclick=function(e){
+      if(lock)return;cs.forEach(function(x){x.classList.remove("on")});c.classList.add("on");
+      var p=pt(e);sparks(p[0],p[1],q.o[+c.dataset.n][0]);V[idx]=q.o[+c.dataset.n][1];lock=true;setTimeout(function(){lock=false;go()},600);
+    }});
+    return;
+  }
+  if(q.type==="multi"){
+    var cnt=el.querySelector("#cnt");
+    function upd(){var k=el.querySelectorAll(".chip.on[data-n]").length+(q.other&&el.querySelector("#oth").classList.contains("on")?1:0);cnt.textContent=k+" / "+q.max+" 선택"}
+    upd();
+    el.querySelectorAll(".chip[data-n]").forEach(function(c){c.onclick=function(e){
+      var k=el.querySelectorAll(".chip.on[data-n]").length+(q.other&&el.querySelector("#oth").classList.contains("on")?1:0);
+      if(!c.classList.contains("on")&&k>=q.max){c.classList.add("no");setTimeout(function(){c.classList.remove("no")},320);return}
+      c.classList.toggle("on");if(c.classList.contains("on")){var p=pt(e);sparks(p[0],p[1],"✨")}upd();
+    }});
+    var oth=el.querySelector("#oth");
+    if(oth)oth.onclick=function(e){
+      var k=el.querySelectorAll(".chip.on[data-n]").length;
+      if(!oth.classList.contains("on")&&k>=q.max){oth.classList.add("no");setTimeout(function(){oth.classList.remove("no")},320);return}
+      oth.classList.toggle("on");var oi=el.querySelector("#oin");oi.style.display=oth.classList.contains("on")?"block":"none";if(oth.classList.contains("on"))oi.focus();upd();
+    };
+  }
+  el.querySelector("#nx").onclick=function(e){save();var p=pt(e);sparks(p[0],p[1],"💛");setTimeout(go,220)};
+}
+function ans(q,v){
+  if(v===undefined||v==="")return "(건너뜀)";
+  if(q.type==="single"||q.type==="area")return v;
+  if(q.type==="sentence")return "나는 "+v+" 한 사람이다.";
+  if(q.type==="multi"){
+    var a=v.sel.slice();if(v.other)a.push("기타: "+v.other);
+    var s=a.join(", ");if(v.detail)s+=(s?"\n   구체적으로: ":"구체적으로: ")+v.detail;
+    return s||"(건너뜀)";
+  }
+  var r=[];q.f.forEach(function(f,n){if(v[n])r.push(f+": "+v[n])});
+  return r.length?r.join("\n   "):"(건너뜀)";
+}
+function report(){
+  return "[NAGOOD 질문지]\n\n"+S.map(function(q,n){return (q.n?q.n+". ":"")+q.t+"\n   → "+ans(q,V[n])}).join("\n\n");
+}
+function finish(){
+  fill.style.width="100%";
+  var sv=V[8],sent=sv?"나는 "+esc(sv)+" 한 사람이다.":"나는 나 그대로 좋은 사람이다.";
+  var h='<div class="sticker"><div class="hero">🎁</div><div class="big-s">“'+sent+'”</div><p class="note" style="text-align:center">You are good just as you are.</p></div>'+
+   '<div class="list">'+S.map(function(q,n){return '<div><b>'+(q.n?q.n+". ":"")+esc(q.t)+'</b>'+esc(ans(q,V[n]))+'</div>'}).join("")+'</div>'+
+   '<div class="row"><button class="btn" id="cp">완료</button><button class="btn ghost" id="bk">← 이전</button><button class="btn ghost" id="re">처음부터</button></div><p class="note" id="msg"></p>';
+  show(h,function(el){
+    var msg=el.querySelector("#msg");
+    el.querySelector("#bk").onclick=back;
+    el.querySelector("#re").onclick=function(){V=[];i=-1;intro()};
+    el.querySelector("#cp").onclick=function(e){
+      var p=pt(e);sparks(p[0],p[1],"🎉");
+      var t=report();
+      (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){msg.textContent="완료"},function(){
+        var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+        try{document.execCommand("copy");msg.textContent="완료"}catch(x){msg.textContent="복사가 안 돼요. 위 답변을 직접 선택해 주세요."}ta.remove();
+      });
+    };
+  });
+}
+intro();
+</script>
+</body>
+</html>
